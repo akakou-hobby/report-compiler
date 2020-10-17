@@ -4,7 +4,7 @@ services:
   serv:
     build: .
     ports:
-      - "5001:5001"
+      - "5000:5000"
     volumes:
       - "./app:/app"
     command: python3 serv.py

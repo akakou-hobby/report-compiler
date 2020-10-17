@@ -14,7 +14,7 @@ def exec(code):
         f.write(code)
 
     # run code
-    result = ''
+    error = ''
     try:
         process = subprocess.run(
                 cmd,
@@ -22,29 +22,32 @@ def exec(code):
                 encoding='utf-8',
                 timeout=TIMEOUT)
 
-        result = process.stdout
+        error = process.stderr
     except subprocess.TimeoutExpired as e:
-        result = 'Timed out'
+        error = 'Timed out'
 
-    return result
+    return error
 
 
 @app.route("/hello", methods=['GET', 'POST'])
 def index():
+    code = ''
+    error = ''
+
     if request.method == 'POST':
         code = request.form["code"]
-        result = exec(code)
+        error = exec(code)
         
         filename = "report.pdf"
 
-        return send_file(filename, as_attachment = True, \
-            attachment_filename = filename, \
-            mimetype = PDF_MIMETYPE)
-    else:
-        return render_template('index.html')
+        if not error:
+            return send_file(filename, as_attachment = True, \
+                attachment_filename = filename, \
+                mimetype = PDF_MIMETYPE)
+    
+    return render_template('index.html', code=code, error=error)
 
 if __name__ == "__main__":
-    # サーバ立ち上げ
     app.run(
         host="0.0.0.0",
         port=5000)

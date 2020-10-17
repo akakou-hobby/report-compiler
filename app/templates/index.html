@@ -1,7 +1,25 @@
-<p>Hello</p>
-<form action='/hello' method='post'>
-  <textarea name='code' value='{{code}}'></textarea>
-  <input type='submit'></input>
-</form>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>課題</title>
 
-<p>{{error}}</p>
+    <link
+       rel="stylesheet"
+       href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css"
+       />
+  </head>
+
+  <body>
+    <main>
+      <h1>Report Compiler</h1>
+      <form action='/hello' method='post'>
+        <textarea name='code' value='{{code}}' rows=20></textarea>
+        <input type='submit'></input>
+      </form>
+
+      <p>{{error}}</p>
+    </main>
+  </body>
+</html>
+

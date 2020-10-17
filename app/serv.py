@@ -1,11 +1,13 @@
 from flask import Flask, request, render_template, send_file
-import hashlib, subprocess
+import os, hashlib, subprocess
 
 TIMEOUT = 60
 PDF_MIMETYPE = "application/pdf"
 
 app = Flask(__name__)
 cmd = 'pandoc -F pandoc-crossref /app/report.md -o /app/report.pdf --pdf-engine lualatex -V luatexjapresetoptions=ipa -N'.split(' ')
+
+token = os.environ.get('TOKEN')
 
 def exec(code):
     # save code to file
@@ -29,7 +31,7 @@ def exec(code):
     return error
 
 
-@app.route("/hello", methods=['GET', 'POST'])
+@app.route(f"/{token}", methods=['GET', 'POST'])
 def index():
     code = ''
     error = ''

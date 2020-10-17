@@ -8,3 +8,5 @@ services:
     volumes:
       - "./app:/app"
     command: python3 serv.py
+    environment:
+        - TOKEN=hogehoge

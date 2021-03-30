@@ -43,9 +43,11 @@ def index():
         filename = "report.pdf"
 
         if not error:
-            return send_file(filename, as_attachment = True, \
+            response = send_file(filename, as_attachment=True,
                 attachment_filename = filename, \
                 mimetype = PDF_MIMETYPE)
+            response.headers['Content-Disposition'] = 'inline; filename=%s' % filename
+            return response
     
     return render_template('index.html', code=code, error=error)
 

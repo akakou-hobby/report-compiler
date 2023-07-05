@@ -6,7 +6,7 @@ The app compiles a MarkDown file into a PDF.
 
 ## usage
 ```sh
-git clone https://github.com/akakou-hobby/web-report-compiler/
-cd web-report-compiler/
+git clone https://github.com/akakou-hobby/report-compiler/
+cd report-compiler/
 sh main.sh
 ```

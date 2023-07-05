@@ -71,7 +71,7 @@ class Api:
             return error
 
         save_file()
-        return ''
+        return 'done'
 
 
 if __name__ == '__main__':

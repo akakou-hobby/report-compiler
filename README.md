@@ -1,7 +1,7 @@
-# web-report-compiler
-The web server which compiles a MarkDown file into a PDF.
+# report-compiler
+The app compiles a MarkDown file into a PDF.
 
-## dependecies
+## dependencies
 - nix
 
 ## usage

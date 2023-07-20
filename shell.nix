@@ -18,13 +18,15 @@ mkShell {
     gtk3
     gtkmm3
     webkitgtk
-    python311
-    python311Packages.pywebview
-    python311Packages.pyqtwebengine
-    python311Packages.pyqt5
-    python311Packages.pygobject3
-    python311Packages.gst-python
+    python310
+    python310Packages.pywebview
+    python310Packages.pyqtwebengine
+    python310Packages.pyqt5
+    python310Packages.pygobject3
+    python310Packages.gst-python
     gobject-introspection
      gsettings-desktop-schemas
+     shadow
+     xorg.xhost
   ];
 }

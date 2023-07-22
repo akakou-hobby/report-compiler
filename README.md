@@ -1,21 +1,13 @@
-# report-compiler
-The app compiles a MarkDown file into a PDF.
+# レポートコンパイラ
 
-## dependencies
+マークダウンをコンパイルして、PDFを生成するアプリです
+
+## 必要なパッケージ
+
 - nix
+- ipafont
 
-## usage
-
-First, ensure the ipafont package is installed on your system.
-
-```/etc/nixos/configuration.nix
-  fonts = {
-    fonts = [
-      pkgs.ipafont
-      # ...
-```
-
-Then, launch application:
+## 起動方法
 
 ```sh
 git clone https://github.com/akakou-hobby/report-compiler/

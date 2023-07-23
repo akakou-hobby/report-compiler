@@ -8,7 +8,7 @@ def main():
                                    js_api=api, min_size=(600, 450))
     api.window = window
 
-    webview.start(http_server=False)
+    webview.start(http_server=False, debug=True)
 
 
 if __name__ == '__main__':

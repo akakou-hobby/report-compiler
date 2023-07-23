@@ -25,8 +25,14 @@ mkShell {
     python310Packages.pygobject3
     python310Packages.gst-python
     gobject-introspection
-     gsettings-desktop-schemas
-     shadow
-     xorg.xhost
+    gsettings-desktop-schemas
+    shadow
+    xorg.xhost
+    glib-networking
+    cacert
   ];
+  
+  shellHook = ''
+    export GIO_MODULE_DIR=${glib-networking}/lib/gio/modules/
+  '';
 }
